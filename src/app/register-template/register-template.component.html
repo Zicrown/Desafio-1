@@ -1,0 +1,93 @@
+<!-- Profe ya no consigo como hacer para q me deje de dar los errores de compilado con que no tengo ni ngForm ni ngModel el codigo segun veo esta bueno -->
+
+<h1 class="text-center mb-5">Formulario de Registro</h1>
+<div class="container-fluid" id="container">
+    <form (submit)="onSubmit()" #registerForm="ngForm">
+        <!-- Nombre Input -->
+        <mdb-form-control class="mb-4">
+            <label mdbLabel class="form-label" for="nombre">Nombre:</label>
+            <input mdbInput class="form-control" type="text" class="" id="nombre" name="nombre"
+                [(ngModel)]="datos.nombre" required minlength="2" #nombre="ngModel">
+        </mdb-form-control>
+
+        <!-- Cuadro de Informacion al usuario -->
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <div class="bg-danger text-white p-2">
+                Nombre debe contener al menos 2 caracteres
+            </div>
+        </div>
+
+        <!-- Apellido Input -->
+        <mdb-form-control class="mb-4">
+            <label mdbLabel class="form-label" for="apellido">Apellido:</label>
+            <input mdbInput class="form-control" type="text" class="" id="apellido" name="apellido"
+                [(ngModel)]="datos.apellido" required minlength="2" #apellido="ngModel">
+        </mdb-form-control>
+
+        <!-- Cuadro de Informacion al usuario -->
+        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+            <div class="bg-danger text-white p-2">
+                Apellido debe contener al menos 2 caracteres
+            </div>
+        </div>
+
+        <!-- Username Input -->
+        <mdb-form-control class="mb-4">
+            <label mdbLabel class="form-label" for="username">Username:</label>
+            <input mdbInput class="form-control" type="text" class="" id="username" name="username"
+                [(ngModel)]="datos.username" required minlength="4" #username="ngModel">
+        </mdb-form-control>
+
+        <!-- Cuadro de Informacion al usuario -->
+        <div *ngIf="username.invalid && (username.dirty || username.touched)">
+            <div class="bg-danger text-white p-2">
+                Username debe contener al menos 4 caracteres
+            </div>
+        </div>
+
+        <!-- Contrasena Input -->
+        <mdb-form-control class="mb-4">
+            <label mdbLabel class="form-label" for="contrasena">Contraseña:</label>
+            <input mdbInput class="form-control" type="password" class="" id="contrasena" name="contrasena"
+                [(ngModel)]="datos.contrasena" required minlength="8" #contrasena="ngModel">
+        </mdb-form-control>
+
+        <!-- Cuadro de Informacion al usuario -->
+        <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+            <div class="bg-danger text-white p-2">
+                Contraseña debe contener al menos 8 caracteres
+            </div>
+        </div>
+
+        <!-- Correo Input -->
+        <mdb-form-control class="mb-4">
+            <label mdbLabel class="form-label" for="correo">Correo:</label>
+            <input mdbInput class="form-control" type="email" class="" id="correo" name="correo"
+                [(ngModel)]="datos.correo" required minlength="15" #correo="ngModel">
+        </mdb-form-control>
+
+        <!-- Cuadro de Informacion al usuario -->
+        <div *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+            <div class="bg-danger text-white p-2">
+                Correo debe contener al menos 15 caracteres
+            </div>
+        </div>
+
+        <!-- Telefono Input -->
+        <mdb-form-control class="mb-4">
+            <label mdbLabel class="form-label" for="telefono">Telefono:</label>
+            <input mdbInput class="form-control" type="tel" class="" id="telefono" name="telefono"
+                [(ngModel)]="datos.telefono" required minlength="10" #telefono="ngModel">
+        </mdb-form-control>
+
+        <!-- Cuadro de Informacion al usuario -->
+        <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+            <div class="bg-danger text-white p-2">
+                Telefono debe contener al menos 10 caracteres
+            </div>
+        </div>
+
+        <!-- Boton Submit -->
+        <button mdbRipple type="submit" class="btn btn-succes" [disabled]="!registerForm.valid">Registrarse</button>
+    </form>
+</div>
